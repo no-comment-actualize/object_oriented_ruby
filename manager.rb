@@ -37,6 +37,8 @@ employee2 = Employee.new(first_name: "Danilo", last_name: "Campos", salary: 7000
 
 class Manager < Employee
 
+  attr_reader :employees
+
   def initialize(input_options)
     super
     @employees = input_options[:employees]
@@ -48,8 +50,13 @@ class Manager < Employee
     puts "Email sent!"
   end
 
+  # attr reader
+  # def employees
+  #   @employees
+  # end
 end
 
 manager = Manager.new(first_name: "Todd", last_name: "Bisel", salary: 100000, active: true, employees: [employee1, employee2])
 manager.print_info
 manager.send_email_report
+p manager.employees[0].last_name
