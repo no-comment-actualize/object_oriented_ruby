@@ -50,13 +50,34 @@ class Manager < Employee
     puts "Email sent!"
   end
 
-  # attr reader
-  # def employees
-  #   @employees
-  # end
+  def give_all_raises
+    # loop through manager's employees
+    employees.each do |employee|
+      # inside the loop, call .give_annual_raise on each employee
+      employee.give_annual_raise
+    end
+  end
+
+  def fire_all_employees
+    employees.each do |employee|
+      employee.active = false
+    end
+  end
 end
 
 manager = Manager.new(first_name: "Todd", last_name: "Bisel", salary: 100000, active: true, employees: [employee1, employee2])
 manager.print_info
 manager.send_email_report
-p manager.employees[0].last_name
+# p manager.employees[0].last_name
+
+# puts employee1.salary
+# puts employee2.salary
+# manager.give_all_raises
+# puts employee1.salary
+# puts employee2.salary
+
+puts employee1.active
+puts employee2.active
+manager.fire_all_employees
+puts employee1.active
+puts employee2.active
