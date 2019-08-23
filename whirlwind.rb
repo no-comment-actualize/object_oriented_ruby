@@ -90,6 +90,22 @@ system 'clear'
 # end
 
 # 4 a 
+# students = []
+# puts "How many students are in your class?:"
+# num_students = gets.chomp.to_i
+
+# num_students.times do 
+#   puts "Student name: "
+#   students << gets.chomp
+# end
+
+# students.shuffle!
+
+# (num_students/2).times do
+#   puts "GROUP: #{students.shift(2)}"
+# end
+
+# b
 students = []
 puts "How many students are in your class?:"
 num_students = gets.chomp.to_i
@@ -101,6 +117,11 @@ end
 
 students.shuffle!
 
-(num_students/2).times do
+# if odd, make a group of 3, then continue as usual
+if students.length.odd?
+  puts "GROUP: #{students.shift(3)}"
+end
+# if even, do this
+(students.length/2).times do
   puts "GROUP: #{students.shift(2)}"
 end
